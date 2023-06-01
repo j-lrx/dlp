@@ -4,5 +4,5 @@ deidentify_template_display_display_name = "basic deidentification template"
 trigger_display_name                     = "My first trigger"
 
 column_name     = [ "Nom", "Prénom" ]
-input_bucket    = "value"
-output_bucket   = "value"
+input_bucket    = "input-bucket-op"
+output_bucket   = "output-bucket-op"
