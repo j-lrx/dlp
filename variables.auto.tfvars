@@ -1,4 +1,4 @@
-parent                                   = "projects/julienleroux/location/europe-west9"
+parent                                   = "projects/julienleroux/locations/europe-west9"
 inspection_template_display_name         = "basic indentification template"
 deidentify_template_display_display_name = "basic deidentification template"
 trigger_display_name                     = "My first trigger"
