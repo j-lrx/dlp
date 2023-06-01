@@ -15,8 +15,10 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
               name = fields.value
             }
           }
-          character_mask_config {
-            masking_character = "*"
+          primitive_transformation {
+            character_mask_config {
+              masking_character = "*"
+            } 
           }
         }
       }
