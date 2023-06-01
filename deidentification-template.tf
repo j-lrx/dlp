@@ -24,6 +24,15 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
               masking_character = "*"
             } 
           }
+          fields {
+            name = "Prenom"
+          }
+
+          primitive_transformation {
+            character_mask_config {
+              masking_character = "*"
+            } 
+          }
         }
       }
     }
