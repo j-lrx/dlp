@@ -3,12 +3,12 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     description     = var.trigger_description
     display_name    = var.trigger_display_name
 
-    trigger{
+    triggers {
         manual{}
     }
 
     inspect_job {
-        inscpect_template_name = var.inspection_template_display_name
+        inspect_template_name = var.inspection_template_display_name
         
         action {
             deidentify {

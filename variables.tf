@@ -4,6 +4,9 @@
 variable "parent" {
     type = string
 }
+variable "region" {
+    type = string  
+}
 
 #
 # Inspection template 
