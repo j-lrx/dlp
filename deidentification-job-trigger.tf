@@ -4,7 +4,9 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     display_name    = var.trigger_display_name
 
     triggers {
-        manual{}
+        schedule {
+          recurecurrence_period_duration = "1" 
+        }
     }
 
     inspect_job {
