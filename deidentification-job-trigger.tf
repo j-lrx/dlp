@@ -17,7 +17,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
                 cloud_storage_output = var.output_bucket
 
                 transformation_config {
-                    deidentify_template = google_data_loss_prevention_deidentify_template.default.name
+                    structured_deidentify_template = google_data_loss_prevention_deidentify_template.default.id
                 }
             }            
         }
