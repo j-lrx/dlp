@@ -18,12 +18,6 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
           fields {
             name = "Nom"
           }
-
-          primitive_transformation {
-            character_mask_config {
-              masking_character = "*"
-            } 
-          }
           fields {
             name = "Prenom"
           }
