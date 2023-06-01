@@ -10,14 +10,14 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     }
 
     inspect_job {
-        inspect_template_name = var.inspection_template_display_name
+        inspect_template_name = google_data_loss_prevention_inspect_template.default.name
         
         actions {
             deidentify {
                 cloud_storage_output = var.output_bucket
 
                 transformation_config {
-                    deidentify_template = var.deidentify_template_display_display_name
+                    deidentify_template = google_data_loss_prevention_deidentify_template.default.name
                 }
             }            
         }
