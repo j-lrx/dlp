@@ -1,4 +1,4 @@
-resource "google_data_loss_prevention_deidentify_job_trigger" "default" {
+resource "google_data_loss_prevention_job_trigger" "default" {
     parent          = var.parent
     description     = var.trigger_description
     display_name    = var.trigger_display_name
