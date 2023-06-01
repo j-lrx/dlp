@@ -16,7 +16,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
           #  }
           #}
           fields {
-          #  name = "Nom"
+            name = "Nom"
           }
 
           primitive_transformation {
