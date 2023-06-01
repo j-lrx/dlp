@@ -9,12 +9,16 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
 
         field_transformations {
 
-          dynamic fields {
-            for_each = var.column_name
-            content {
-              name = fields.value
-            }
+          #dynamic fields {
+          #  for_each = var.column_name
+          #  content {
+          #    name = fields.value
+          #  }
+          #}
+          fields {
+            name = "Nom"
           }
+
           primitive_transformation {
             character_mask_config {
               masking_character = "*"
