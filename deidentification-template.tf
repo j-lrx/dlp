@@ -1,7 +1,7 @@
-resource "google_data_loss_prevention_deidentify_template" "basic" {
-    parnet          = var.parent
-    description     = var.description
-    display_name    = var.display_name
+resource "google_data_loss_prevention_deidentify_template" "default" {
+    parent          = var.parent
+    description     = var.deidentify_template_description
+    display_name    = var.deidentify_template_display_display_name
 
     deidentify_config {
 

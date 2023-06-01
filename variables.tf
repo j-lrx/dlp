@@ -1,42 +1,46 @@
 #
-# Inspection template 
+# Common
 #
 variable "parent" {
     type = string
 }
 
-variable "deidentify_template_description" {
-    type = string
-    default = "Template d'anonimistion de données"
-}
-
-variable "deidentify_template_display_display_name" {
-    type = string  
-}
-
-variable "column_name" {
-    type = list(string)
-}
-
-variable "trigge_description" {
-    type = string
-    default = "déidentification job trigger"
-}
-
-variable "trigger_display_name" {
-    type = string  
-}
+#
+# Inspection template 
+#
 
 variable "inspection_template_display_name" {
     type = string  
 }
 
 
+#
+# Deidentification template
+#
+variable "deidentify_template_display_display_name" {
+    type = string  
+}
+variable "deidentify_template_description" {
+    type = string
+    default = "Template d'anonimistion de données"
+}
+variable "column_name" {
+    type = list(string)
+}
+
+#
+# Trigger Job
+#
+variable "trigger_display_name" {
+    type = string  
+}
+variable "trigger_description" {
+    type = string
+    default = "déidentification job trigger"
+}
 variable "input_bucket" {
     type = string  
 }
-
-
-variable "input_path" {
+variable "output_bucket" {
     type = string  
 }
