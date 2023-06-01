@@ -10,7 +10,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     inspect_job {
         inspect_template_name = var.inspection_template_display_name
         
-        action {
+        actions {
             deidentify {
                 cloud_storage_output = var.output_bucket
 
