@@ -5,7 +5,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
 
     triggers {
         schedule {
-          recurecurrence_period_duration = "86400s" 
+            recurrence_period_duration = "86400s"
         }
     }
 
