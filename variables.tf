@@ -8,6 +8,9 @@ variable "region" {
     type = string  
     default ="europe-west9"
 }
+variable "google-creds" {
+    type = string  
+}
 
 #
 # Inspection template 
