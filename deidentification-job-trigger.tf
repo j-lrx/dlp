@@ -10,7 +10,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     }
 
     inspect_job {
-        inspect_template_name = "projects/julienleroux/locations/global/dlpJobs/i-test"
+        inspect_template_name = google_data_loss_prevention_inspect_template.default.id
         
         actions {
             deidentify {
