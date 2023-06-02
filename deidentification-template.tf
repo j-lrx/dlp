@@ -47,7 +47,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
               crypto_deterministic_config {
                 crypto_key {
                   transient {
-                    name = "key-${ramdom_integer.random_int.result}"
+                    name = "key-${random_integer.random_int.result}"
                   }
                 }
               }          
