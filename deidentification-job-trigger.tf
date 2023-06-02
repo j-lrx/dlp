@@ -10,7 +10,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     }
 
     inspect_job {
-        inspect_template_name = google_data_loss_prevention_inspect_template.default.id
+        inspect_template_name = "fake" #google_data_loss_prevention_inspect_template.default.id
         
         actions {
             deidentify {
@@ -26,7 +26,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
         storage_config {
 
             timespan_config {
-                start_time                                  = "2023-05-15T12:00:00.000Z" #var.start_time
+                start_time                                  = date() #var.start_time
             #    #end_time                                    = var.end_time
                 enable_auto_population_of_timespan_config   = true #var.start_time == null && var.end_time == null ? true : false
                 timestamp_field {
