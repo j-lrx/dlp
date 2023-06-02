@@ -19,7 +19,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
             }
 
             dynamic fields {
-              for_each = var.column_to_crypto_deterministic != null ? length(var.column_to_crypto_deterministic) : 0
+              for_each = var.column_to_crypto_deterministic != null ? [length(var.column_to_crypto_deterministic)] : [0]
               content {
                 name = fields.value
               }
