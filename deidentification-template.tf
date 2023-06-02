@@ -60,31 +60,31 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
       }
 
 
-      #dynamic "info_type_transformations" {
-      #  for_each = var.text_to_info_type != null || var.text_to_crypto_deterministic != null ? [1] : [0]
-      #  content {
+      dynamic "info_type_transformations" {
+        for_each = var.text_to_info_type != null || var.text_to_crypto_deterministic != null ? [1] : [0]
+        content {
 
           ###################################################
           #        Remplacement texte par info_type         #
           ###################################################
-          #dynamic "transformations" {
-          #  for_each = var.text_to_info_type != null ? [1] : [0]
-          #  content {
+          dynamic "transformations" {
+            for_each = var.text_to_info_type != null ? [1] : [0]
+            content {
 
-          #    dynamic "info_types" {
-          #      for_each = var.text_to_info_type != null ? [length(var.text_to_info_type)] : [0]
-          #      content {
-          #        name = info_types.value
-          #      }
-          #    }
+              dynamic "info_types" {
+                for_each = var.text_to_info_type != null ? [length(var.text_to_info_type)] : [0]
+                content {
+                  name = info_types.value
+                }
+              }
             
 
-          #    primitive_transformation {
-          #      replace_with_info_type_conzfig = true
-          #    }
-          #  }
-          #}
-      #  }
-      #}
+              primitive_transformation {
+                replace_with_info_type_conzfig = true
+              }
+            }
+          }
+        }
+      }
     }
 }
