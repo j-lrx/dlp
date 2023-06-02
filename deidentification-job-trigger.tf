@@ -1,7 +1,7 @@
 resource "google_data_loss_prevention_job_trigger" "default" {
     parent          = "projects/${var.project_id}/locations/${var.region}"
     description     = var.description
-    display_name    = "${var.diplay_name} - job trigger"
+    display_name    = "${var.display_name} - job trigger"
 
     triggers {
         schedule {

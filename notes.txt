@@ -1,0 +1,34 @@
+##########################
+# job trigger structured #
+##########################
+
+parent
+description
+display_name
+status
+
+triggers
+    schedule
+        recurrence_period_duration
+
+inspect_job
+    inspect_template_name
+
+    inspect_config
+        min_likelihood
+        info_types
+            name
+            version
+        rule_set
+            info_types
+                name
+                version
+            rules
+                hotword_rule
+                    hotword_regex
+                        pattern
+                        group_indexes
+                exclusion_rule
+        custom_info_types
+    storage_config
+    actions

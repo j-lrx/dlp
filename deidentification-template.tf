@@ -1,7 +1,7 @@
 resource "google_data_loss_prevention_deidentify_template" "default" {
-    parent          = var.project_id
-    description     = var.deidentify_template_description
-    display_name    = var.deidentify_template_display_display_name
+    parent          = "projects/${var.project_id}/locations/${var.region}"
+    description     = var.description
+    display_name    = "${var.display_name} - deidentification template"
 
     deidentify_config {
 

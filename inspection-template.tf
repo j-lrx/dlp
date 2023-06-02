@@ -1,6 +1,7 @@
 resource "google_data_loss_prevention_inspect_template" "default" {
-    parent          = var.project_id
-    display_name    = var.inspection_template_display_name
+    parent          = "projects/${var.project_id}/locations/${var.region}"
+    description     = var.description
+    display_name    = "${var.display_name} - inspection template"
 
     inspect_config {
       
