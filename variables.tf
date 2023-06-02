@@ -73,5 +73,13 @@ variable "enable_auto_population_of_timespan_config" {
 #############################
 
 variable "column_to_mask" {
-    type = set(string)
+    type        = set(string)
+    nullable    = true
+    default     = null
+}
+
+variable "column_to_crypto_deterministic" {
+    type        = set(string)
+    nullable    = true
+    default     = null
 }
