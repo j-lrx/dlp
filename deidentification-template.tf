@@ -8,11 +8,18 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
       record_transformations {
 
         dynamic "field_transformations" {
-          for_each = var.column_to_mask != null ? [1] : [0]
+          for_each = var.column_to_mask != null || var.column_to_crypto_deterministic != null ? [1] : [0]
           content {
 
             dynamic fields {
               for_each = var.column_to_mask
+              content {
+                name = fields.value
+              }
+            }
+
+            dynamic fields {
+              for_each = var.column_to_crypto_deterministic
               content {
                 name = fields.value
               }
