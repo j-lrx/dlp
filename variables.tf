@@ -1,12 +1,16 @@
 #
 # Common
 #
-variable "parent" {
+variable "project_id" {
     type = string
 }
 variable "region" {
     type = string  
-    default ="europe-west9"
+    default ="europe-west1"
+    validation{
+        condition = var.region == "europe-west1" || var.region == "europe-west9"
+        error_message = "Région disponible : europe-west1 ou europe-west9"
+    }
 }
 variable "google-creds" {
     type = string  
