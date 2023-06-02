@@ -19,7 +19,8 @@ variable "google-creds" {
 
 variable "description" {
     type        = string
-    nullable    = true  
+    nullable    = true
+    default     = null
 }
 
 variable "display_name" {
