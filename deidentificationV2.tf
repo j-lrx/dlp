@@ -1,4 +1,3 @@
-/*
 resource "google_data_loss_prevention_deidentify_template" "default" {
     parent          = "projects/${var.project_id}/locations/${var.region}"
     description     = var.description
@@ -7,15 +6,14 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
     deidentify_config {
 
       dynamic "record_transformations" {
-        for_each = var.input_source_type == "TABLE" ? [1] : [0]
+        for_each = var.input_source_type == "TABLE" ? 
         content {
 
           ###################################################
           #              Masquage de colonne                #
           ###################################################
-          dynamic "field_transformations" {
-            for_each = var.column_to_mask != null ? [1] : [0]
-            content {
+          field_transformations {
+
 
               dynamic fields {
                 for_each = var.column_to_mask != null ? [length(var.column_to_mask)] : [0]
@@ -29,7 +27,6 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
                   masking_character = "*"
                 } 
               }
-            }
           }
 
           ###################################################
@@ -58,34 +55,35 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
             }
           }
         }
-      }
+        :
+        content{
+      
 
 
-      dynamic "info_type_transformations" {
-        for_each = var.input_source_type == "TEXTE" ? [1] : [0]
-        content {
+            info_type_transformations {
 
-          ###################################################
-          #        Remplacement texte par info_type         #
-          ###################################################
-          dynamic "transformations" {
-            for_each = var.text_to_info_type != null ? [1] : [0]
-            content {
+                ###################################################
+                #        Remplacement texte par info_type         #
+                ###################################################
+                dynamic "transformations" {
+                    for_each = var.text_to_info_type != null ? [1] : [0]
+                    content {
 
-              dynamic "info_types" {
-                for_each = var.text_to_info_type != null ? [length(var.text_to_info_type)] : [0]
-                content {
-                  name = info_types.value
-                }
-              }
+                        dynamic "info_types" {
+                            for_each = var.text_to_info_type != null ? [length(var.text_to_info_type)] : [0]
+                            content {
+                                name = info_types.value
+                            }
+                        }   
             
 
-              primitive_transformation {
-                replace_with_info_type_config = true
-              }
+                        primitive_transformation {
+                            replace_with_info_type_config = true
+                        }
+                    }
+                }
             }
-          }
+            
         }
-      }
     }
 }
