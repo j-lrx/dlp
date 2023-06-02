@@ -1,14 +1,14 @@
 resource "google_data_loss_prevention_job_trigger" "default" {
-    parent          = var.parent
+    parent          = var.project_id
     description     = var.trigger_description
     display_name    = var.trigger_display_name
 
     triggers {
         
-        manual {}
-        #schedule {
-        #    recurrence_period_duration = "86400s"
-        #}
+        #manual {}
+        schedule {
+            recurrence_period_duration = "86400s"
+        }
     }
 
     inspect_job {
