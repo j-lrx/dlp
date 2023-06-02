@@ -1,8 +1,12 @@
-project_id                               = "projects/julienleroux/locations/europe-west9"
-inspection_template_display_name         = "basic indentification template"
-deidentify_template_display_display_name = "basic deidentification template"
-trigger_display_name                     = "My first trigger"
+# Common
+project_id   = "julienleroux"
+display_name = "Test export anonimysé"
 
-column_name     = [ "Nom", "Prénom" ]
-input_bucket    = "gs://input-bucket-op"
-output_bucket   = "gs://output-bucket-op"
+# Job trigger
+column_name          = [ "Nom", "Prénom" ]
+cloud_storage_input  = "gs://input-bucket-op"
+cloud_storage_output = "gs://output-bucket-op"
+
+# inspection template
+
+# deidentification template

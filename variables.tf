@@ -1,8 +1,9 @@
-#
-# Common
-#
+##########
+# Common #
+##########
 variable "project_id" {
-    type = string
+    type        = string
+    nullable    = false
 }
 variable "region" {
     type = string  
@@ -16,42 +17,49 @@ variable "google-creds" {
     type = string  
 }
 
-#
-# Inspection template 
-#
-
-variable "inspection_template_display_name" {
-    type = string  
+variable "description" {
+    type        = string
+    nullable    = true  
 }
 
-
-#
-# Deidentification template
-#
-variable "deidentify_template_display_display_name" {
-    type = string  
-}
-variable "deidentify_template_description" {
-    type = string
-    default = "Template d'anonimistion de données"
-}
-variable "column_name" {
-    type = list(string)
+variable "display_name" {
+    type    = string
+    default = "Export de données anonymisées"  
 }
 
-#
-# Trigger Job
-#
-variable "trigger_display_name" {
-    type = string  
+###############
+# Job trigger #
+###############
+
+variable "recurrence_period_duration" {
+    type        = number
+    default     = "86400" # 1 journée
+    nullable    = false
 }
-variable "trigger_description" {
-    type = string
-    default = "déidentification job trigger"
+
+variable "cloud_storage_output" {
+    type        = string
+    nullable    = false
+    validation {
+        condition       = var.cloud_storage_input != var.cloud_storage_output
+        error_message   = "cloud_storage_input et cloud_storage_ouput doivent être différents"
+    }
 }
-variable "input_bucket" {
-    type = string  
+
+variable "file_types_to_transform" {
+    type        = list(string)
+    nullable    = true
+    validation {
+        condition       = contains(["IMAGE","TEXT_FILE","CSV","TSV"])
+        error_message   = "Unauthorized value(s). Autorized values list : IMAGE, TEXT_FILE, CVS and TSV"
+    }
 }
-variable "output_bucket" {
-    type = string  
+
+variable "cloud_storage_input" {
+    type        = string
+    nullable    = false
+    validation {
+        condition       = var.cloud_storage_input != var.cloud_storage_output
+        error_message   = "cloud_storage_input et cloud_storage_ouput doivent être différents"
+    }
 }

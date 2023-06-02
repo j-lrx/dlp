@@ -1,13 +1,11 @@
 resource "google_data_loss_prevention_job_trigger" "default" {
-    parent          = var.project_id
-    description     = var.trigger_description
-    display_name    = var.trigger_display_name
+    parent          = "projects/${var.project_id}/locations/${var.region}"
+    description     = var.description
+    display_name    = "${var.diplay_name} - job trigger"
 
     triggers {
-        
-        #manual {}
         schedule {
-            recurrence_period_duration = "86400s"
+            recurrence_period_duration = "${var.recurrence}s"
         }
     }
 
@@ -16,7 +14,8 @@ resource "google_data_loss_prevention_job_trigger" "default" {
         
         actions {
             deidentify {
-                cloud_storage_output = var.output_bucket
+                cloud_storage_output    = var.cloud_storage_output
+                file_types_to_transform = var.file_types_to_transform
 
                 transformation_config {
                     structured_deidentify_template = google_data_loss_prevention_deidentify_template.default.id
@@ -25,10 +24,18 @@ resource "google_data_loss_prevention_job_trigger" "default" {
         }
 
         storage_config {
+
+            timespan_config {
+                start_time                                  = var.start_time
+                end_time                                    = var.end_time
+                enable_auto_population_of_timespan_config   = var.start_time == null && var.end_time = null ? true : false
+            }
+
             cloud_storage_options {
                 file_set {
-                    url = var.input_bucket
+                    url     = var.cloud_storage_input
                 }
+                file_types  = var.file_types_to_transform
             }
        }
     }
