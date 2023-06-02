@@ -5,7 +5,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
 
     triggers {
         schedule {
-            recurrence_period_duration = "${var.recurrence}s"
+            recurrence_period_duration = "${var.recurrence_period_duration}s"
         }
     }
 
