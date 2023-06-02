@@ -1,4 +1,3 @@
-/*
 resource "google_data_loss_prevention_deidentify_template" "default" {
     parent          = "projects/${var.project_id}/locations/${var.region}"
     description     = var.description
@@ -89,4 +88,3 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
       }
     }
 }
-*/
