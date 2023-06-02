@@ -7,8 +7,11 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
 
       record_transformations {
 
+        ###################################################
+        #              Masquage de colonne                #
+        ###################################################
         dynamic "field_transformations" {
-          for_each = var.column_to_mask != null || var.column_to_crypto_deterministic != null ? [1] : [0]
+          for_each = var.column_to_mask != null ? [1] : [0]
           content {
 
             dynamic fields {
@@ -18,6 +21,21 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
               }
             }
 
+            primitive_transformation {
+              character_mask_config {
+                masking_character = "*"
+              } 
+            }
+          }
+        }
+
+        ###################################################
+        #     Anonymisation table par crypto réversible   #
+        ###################################################
+        dynamic "field_transformations" {
+          for_each = var.column_to_mask != null ? [1] : [0]
+          content {
+
             dynamic fields {
               for_each = var.column_to_crypto_deterministic != null ? [length(var.column_to_crypto_deterministic)] : [0]
               content {
@@ -26,9 +44,13 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
             }
 
             primitive_transformation {
-              character_mask_config {
-                masking_character = "*"
-              } 
+              crypto_deterministic_config {
+                crypto_key {
+                  transient {
+                    name = "key-${ramdom_integer.random_int.result}"
+                  }
+                }
+              }          
             }
           }
         }

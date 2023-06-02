@@ -83,3 +83,15 @@ variable "column_to_crypto_deterministic" {
     nullable    = true
     default     = null
 }
+
+variable "text_to_mask" {
+    type        = set(string)
+    nullable    = true
+    default     = null
+}
+
+variable "text_to_crypto_deterministic" {
+    type        = set(string)
+    nullable    = true
+    default     = null
+}
