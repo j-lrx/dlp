@@ -29,6 +29,9 @@ resource "google_data_loss_prevention_job_trigger" "default" {
                 start_time                                  = var.start_time
                 end_time                                    = var.end_time
                 enable_auto_population_of_timespan_config   = var.start_time == null && var.end_time == null ? true : false
+                timestamp_field {
+                  name = ""
+                }
             }
 
             cloud_storage_options {
