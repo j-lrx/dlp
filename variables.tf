@@ -54,7 +54,7 @@ variable "cloud_storage_input" {
 }
 
 variable "start_time" {
-    default  = null
+    default  = "1900-01-01T00:00:00.000Z"
     nullable = true
 }
 
@@ -64,6 +64,7 @@ variable "end_time" {
 }
 
 variable "enable_auto_population_of_timespan_config" {
+    type = bool
     default = true
 }
 

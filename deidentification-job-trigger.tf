@@ -26,9 +26,9 @@ resource "google_data_loss_prevention_job_trigger" "default" {
         storage_config {
 
             timespan_config {
-                start_time                                  = "2023-05-01T00:00:00.000Z" #var.start_time
-                end_time                                    = "2023-05-15T00:00:00.000Z" #var.end_time
-                enable_auto_population_of_timespan_config   = true #var.start_time == null && var.end_time == null ? true : false
+                start_time                                  = var.start_time
+                end_time                                    = var.end_time
+                enable_auto_population_of_timespan_config   = var.enable_auto_population_of_timespan_config
                 timestamp_field {
                   name = "date"
                 }
