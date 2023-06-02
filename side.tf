@@ -1,5 +1,6 @@
 resource "google_storage_bucket" "input_bucket" {
   name          = "input-bucket-op"
+  region = "europe-west9"
   location      = var.region
   uniform_bucket_level_access = true
   force_destroy = true
@@ -7,6 +8,7 @@ resource "google_storage_bucket" "input_bucket" {
 
 resource "google_storage_bucket" "output_bucket" {
   name          = "output-bucket-op"
+  region = "europe-west9"
   location      = var.region
   uniform_bucket_level_access = true
   force_destroy = true
