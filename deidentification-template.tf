@@ -8,25 +8,21 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
       record_transformations {
 
         field_transformations {
+          for_each = var.column_to_mask != null ? [1] : 0
+          content {
 
-          dynamic fields {
-            for_each = var.column_to_mask
-            content {
-              name = fields.value
+            dynamic fields {
+              for_each = var.column_to_mask
+              content {
+                name = fields.value
+              }
             }
-          }
 
-          #fields {
-          #  name = "Nom"
-          #}
-          #fields {
-          #  name = "Prénom"
-          #}
-
-          primitive_transformation {
-            character_mask_config {
-              masking_character = "*"
-            } 
+            primitive_transformation {
+              character_mask_config {
+                masking_character = "*"
+              } 
+            }
           }
         }
       }
