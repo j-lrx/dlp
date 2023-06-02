@@ -3,7 +3,7 @@ terraform {
     organization = "j-lrx"
 
     workspaces {
-      name = "dlp"
+      name = "deploy-master"
     }
   }
 } 

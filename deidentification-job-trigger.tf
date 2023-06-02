@@ -4,9 +4,11 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     display_name    = var.trigger_display_name
 
     triggers {
-        schedule {
-            recurrence_period_duration = "86400s"
-        }
+        
+        manual {}
+        #schedule {
+        #    recurrence_period_duration = "86400s"
+        #}
     }
 
     inspect_job {
