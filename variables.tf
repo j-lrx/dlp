@@ -54,7 +54,7 @@ variable "cloud_storage_input" {
 }
 
 variable "start_time" {
-    default  = "1900-01-01T00:00:00.000Z"
+    default  = "1970-01-01T00:00:00.000Z"
     nullable = true
 }
 
