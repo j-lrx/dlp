@@ -10,7 +10,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
     }
 
     inspect_job {
-        inspect_template_name = "fake" #google_data_loss_prevention_inspect_template.default.id
+        inspect_template_name = google_data_loss_prevention_inspect_template.default.id
         
         actions {
             deidentify {
