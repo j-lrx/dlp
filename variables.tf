@@ -45,7 +45,7 @@ variable "cloud_storage_output" {
 
 variable "file_types_to_transform" {
     type        = list(string)
-    default     = ["IMAGE","TEXT_FILE","CSV","TSV"]
+    default     = ["TEXT_FILE","CSV","TSV"]
 }
 
 variable "cloud_storage_input" {
