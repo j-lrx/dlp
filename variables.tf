@@ -40,17 +40,13 @@ variable "recurrence_period_duration" {
 variable "cloud_storage_output" {
     type        = string
     nullable    = false
-    validation {
-        condition       = var.cloud_storage_input != var.cloud_storage_output
-        error_message   = "cloud_storage_input et cloud_storage_ouput doivent être différents"
-    }
 }
 
 variable "file_types_to_transform" {
     type        = list(string)
     nullable    = true
     validation {
-        condition       = contains(["IMAGE","TEXT_FILE","CSV","TSV"])
+        condition       = contains(["IMAGE","TEXT_FILE","CSV","TSV"],var.file_types_to_transform)
         error_message   = "Unauthorized value(s). Autorized values list : IMAGE, TEXT_FILE, CVS and TSV"
     }
 }
@@ -58,8 +54,16 @@ variable "file_types_to_transform" {
 variable "cloud_storage_input" {
     type        = string
     nullable    = false
-    validation {
-        condition       = var.cloud_storage_input != var.cloud_storage_output
-        error_message   = "cloud_storage_input et cloud_storage_ouput doivent être différents"
-    }
 }
+
+variable "start_time" {
+    default = null
+}
+
+variable "end_time" {
+    default = null
+}
+
+variable "enable_auto_population_of_timespan_config" {
+}
+
