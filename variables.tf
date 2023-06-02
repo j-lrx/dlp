@@ -54,11 +54,13 @@ variable "cloud_storage_input" {
 }
 
 variable "start_time" {
-    default = null
+    default  = null
+    nullable = true
 }
 
 variable "end_time" {
-    default = null
+    default  = null
+    nullable = true
 }
 
 variable "enable_auto_population_of_timespan_config" {
