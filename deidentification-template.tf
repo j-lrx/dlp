@@ -12,7 +12,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
           dynamic fields {
             for_each = var.column_to_mask
             content {
-              name = var.column_to_mask.key
+              name = fields.value
             }
           }
 
