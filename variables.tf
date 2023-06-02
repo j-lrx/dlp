@@ -95,3 +95,8 @@ variable "text_to_crypto_deterministic" {
     nullable    = true
     default     = null
 }
+
+variable "" {
+    type     = string
+    nullable = false
+}
