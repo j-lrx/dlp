@@ -46,10 +46,6 @@ variable "cloud_storage_output" {
 variable "file_types_to_transform" {
     type        = list(string)
     default     = ["IMAGE","TEXT_FILE","CSV","TSV"]
-    validation {
-        condition       = contains(["IMAGE","TEXT_FILE","CSV","TSV"],var.file_types_to_transform)
-        error_message   = "Unauthorized value(s). Autorized values list : IMAGE, TEXT_FILE, CVS and TSV"
-    }
 }
 
 variable "cloud_storage_input" {
