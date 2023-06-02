@@ -68,3 +68,10 @@ variable "enable_auto_population_of_timespan_config" {
     default = true
 }
 
+#############################
+# deidentification template #
+#############################
+
+variable "column_to_mask" {
+    type = set(string)
+}

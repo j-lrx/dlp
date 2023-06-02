@@ -9,18 +9,19 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
 
         field_transformations {
 
-          #dynamic fields {
-          #  for_each = var.column_name
-          #  content {
-          #    name = fields.value
-          #  }
+          dynamic fields {
+            for_each = var.column_to_mask
+            content {
+              name = each.value
+            }
+          }
+
+          #fields {
+          #  name = "Nom"
           #}
-          fields {
-            name = "Nom"
-          }
-          fields {
-            name = "Prénom"
-          }
+          #fields {
+          #  name = "Prénom"
+          #}
 
           primitive_transformation {
             character_mask_config {
@@ -30,5 +31,4 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
         }
       }
     }
-    
 }
