@@ -45,7 +45,7 @@ variable "cloud_storage_output" {
 
 variable "file_types_to_transform" {
     type        = list(string)
-    nullable    = true
+    default     = ["IMAGE","TEXT_FILE","CSV","TSV"]
     validation {
         condition       = contains(["IMAGE","TEXT_FILE","CSV","TSV"],var.file_types_to_transform)
         error_message   = "Unauthorized value(s). Autorized values list : IMAGE, TEXT_FILE, CVS and TSV"
@@ -66,5 +66,6 @@ variable "end_time" {
 }
 
 variable "enable_auto_population_of_timespan_config" {
+    default = true
 }
 
