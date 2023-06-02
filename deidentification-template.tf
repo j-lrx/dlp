@@ -80,7 +80,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
             
 
               primitive_transformation {
-                replace_with_info_type_conzfig = true
+                replace_with_info_type_config = true
               }
             }
           }
