@@ -1,5 +1,5 @@
 resource "google_data_loss_prevention_deidentify_template" "default" {
-    parent          = var.parent
+    parent          = var.project_id
     description     = var.deidentify_template_description
     display_name    = var.deidentify_template_display_display_name
 
@@ -18,9 +18,9 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
           fields {
             name = "Nom"
           }
-          fields {
-            name = "Prénom"
-          }
+          #fields {
+          #  name = "Prénom"
+          #}
 
           primitive_transformation {
             character_mask_config {
