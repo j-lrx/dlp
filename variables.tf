@@ -96,7 +96,7 @@ variable "text_to_crypto_deterministic" {
     default     = null
 }
 
-variable "" {
+variable "input_source_type" {
     type     = string
     nullable = false
 }
