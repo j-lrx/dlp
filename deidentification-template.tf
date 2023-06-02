@@ -6,7 +6,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
     deidentify_config {
 
       dynamic "record_transformations" {
-        for_each = var.input_source_type == "table" ? [1] : [0]
+        for_each = var.input_source_type == "TABLE" ? [1] : [0]
         content {
 
           ###################################################
@@ -61,7 +61,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
 
 
       dynamic "info_type_transformations" {
-        for_each = var.input_source_type == "text" ? [1] : [0]
+        for_each = var.input_source_type == "TEXTE" ? [1] : [0]
         content {
 
           ###################################################
