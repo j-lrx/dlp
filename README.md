@@ -2,7 +2,7 @@
 
 ## Important - Facturation
 
-Le service data loss prevention de gcp est un service onéreux de l'ordre de <span style'color:red'>**2€ / Go**</span> de données traitées. Pour plus d'information sur le mode de facturation sur la [lien](https://google.com "page offielle.")
+Le service data loss prevention de gcp est un service onéreux de l'ordre de **2€ / Go** de données traitées. Pour plus d'information sur le mode de facturation sur la [lien](https://google.com "page offielle.")
 
 ## Principes
 
