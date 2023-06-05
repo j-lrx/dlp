@@ -18,7 +18,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
                 file_types_to_transform = var.file_types_to_transform
 
                 transformation_config {
-                    structured_deidentify_template = google_data_loss_prevention_deidentify_template.default.id
+                    structured_deidentify_template = google_data_loss_prevention_deidentify_template.table.id
                 }
             }            
         }
