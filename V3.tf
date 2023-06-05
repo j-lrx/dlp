@@ -63,7 +63,7 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
 
 resource "google_data_loss_prevention_deidentify_template" "table2" {
     parent          = "projects/${var.project_id}/locations/${var.region}"
-    description     = var.description
+    description     = "toto"
     display_name    = "${var.display_name} - deidentification template2"
 
     deidentify_config {
