@@ -92,34 +92,7 @@ resource "google_data_loss_prevention_deidentify_template" "table2" {
               }
             }
           }
-
-          ###################################################
-          #    Remplacement texte par crypto réversible     #
-          ###################################################
-          dynamic "transformations" {
-            for_each = var.text_to_crypto_deterministic != null ? [1] : [0]
-            content {
-
-              dynamic "info_types" {
-                for_each = var.text_to_crypto_deterministic != null ? [length(var.text_to_crypto_deterministic)] : [0]
-                content {
-                  name = info_types.value
-                }
-              }
-            
-              primitive_transformation {
-                crypto_deterministic_config {
-                  crypto_key {
-                    transient {
-                      name = "key-${random_integer.random_int.result}"
-                    }
-                  }
-                }          
-              }
-            }
-          }
         }
       }
-      
     }
 }
