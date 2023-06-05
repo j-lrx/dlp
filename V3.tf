@@ -61,7 +61,7 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
     }
 }
 
-resource "google_data_loss_prevention_deidentify_template" "table2" {
+resource "google_data_loss_prevention_deidentify_template" "texte" {
     parent          = "projects/${var.project_id}/locations/${var.region}"
     description     = "toto"
     display_name    = "${var.display_name} - deidentification template2"
