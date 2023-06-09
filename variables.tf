@@ -65,7 +65,7 @@ variable "end_time" {
 
 variable "enable_auto_population_of_timespan_config" {
     type = bool
-    default = false
+    default = true
 }
 
 #############################
