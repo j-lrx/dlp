@@ -1,5 +1,4 @@
-/*
-resource "google_data_loss_prevention_deidentify_template" "default" {
+resource "google_data_loss_prevention_deidentify_template" "table" {
     parent          = "projects/${var.project_id}/locations/${var.region}"
     description     = var.description
     display_name    = "${var.display_name} - deidentification template"
@@ -36,7 +35,7 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
           #     Anonymisation table par crypto réversible   #
           ###################################################
           dynamic "field_transformations" {
-            for_each = var.column_to_mask != null ? [1] : [0]
+            for_each = var.column_to_crypto_deterministic != null ? [1] : [0]
             content {
 
               dynamic fields {
@@ -58,10 +57,18 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
             }
           }
         }
-      }
+      }      
+    }
+}
 
+resource "google_data_loss_prevention_deidentify_template" "texte" {
+    parent          = "projects/${var.project_id}/locations/${var.region}"
+    description     = "toto"
+    display_name    = "${var.display_name} - deidentification template2"
 
-      dynamic "info_type_transformations" {
+    deidentify_config {
+
+        dynamic "info_type_transformations" {
         for_each = var.input_source_type == "TEXTE" ? [1] : [0]
         content {
 
@@ -89,4 +96,3 @@ resource "google_data_loss_prevention_deidentify_template" "default" {
       }
     }
 }
-/**/
