@@ -1,5 +1,5 @@
 # Common
-project_id   = "julien-le-roux-389215"
+project_id   = "julienleroux"
 display_name = "Test export anonimysé"
 
 # Job trigger
