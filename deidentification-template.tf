@@ -34,7 +34,7 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
         ###################################################
         #     Anonymisation table par crypto réversible   #
         ###################################################
-        dynamic "field_transformations" {
+        /*dynamic "field_transformations" {
           for_each = var.column_to_crypto_deterministic != null ? [1] : [0]
           content {
 
@@ -56,7 +56,7 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
               }
             }
           }
-        }
+        }*/
       }
     }
   }
