@@ -48,7 +48,7 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
             primitive_transformation {
               crypto_deterministic_config {
                 crypto_key {
-                  transient {
+                  kms_wrapped {
                     wrapped_key = "c3lzdGVtZVU="
                     crypto_key_name = "key-${random_integer.random_int.result}"
                   }
