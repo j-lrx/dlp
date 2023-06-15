@@ -48,9 +48,9 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
             primitive_transformation {
               crypto_deterministic_config {
                 crypto_key {
-                  transient {
+                  /*transient {
                     name = "key-${random_integer.random_int.result}"
-                  }
+                  }*/
                 }
               }
             }
