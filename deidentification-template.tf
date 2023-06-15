@@ -77,7 +77,7 @@ resource "google_data_loss_prevention_deidentify_template" "texte" {
         #        Remplacement texte par info_type         #
         ###################################################
         dynamic "transformations" {
-          for_each = try(var.text_to_info_type != null ? [1] : [0])
+          for_each = try(var.text_to_info_type != "" ? [1] : [0])
           content {
 
             dynamic "info_types" {

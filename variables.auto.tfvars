@@ -15,4 +15,5 @@ text_to_info_type = []
 
 /*input_source_type = "TEXTE"
 text_to_info_type = ["EMAIL_ADDRESS","DATE","FIRST_NAME"]
+column_to_mask    = []
 */
