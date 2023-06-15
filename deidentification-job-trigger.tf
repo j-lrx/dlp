@@ -20,7 +20,7 @@ resource "google_data_loss_prevention_job_trigger" "default" {
         transformation_config {
           structured_deidentify_template = count var.input_source_type == "TABLE" ? google_data_loss_prevention_deidentify_template.table.id : google_data_loss_prevention_deidentify_template.texte.id
         }
-      }
+      } 
     }
 
     storage_config {
