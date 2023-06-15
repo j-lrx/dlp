@@ -14,7 +14,6 @@ Une copie des fichiers ou tables analysées est crée, les données sensibles ch
     - *Chiffrement déterministe* : Chaque données est chiffrées grace à une clef. Cette méthode préserve la cohérence des données quand celles-ci sont utilisées comme clef de jointure entre tables. 
 - Pour les fichiers de texte :
     - Remplacement par le type de donnée : Chaque données est remplacé par son type. ex : *example@systeme-u.fr* sera remplacé par *EMAIL_ADRESS*
-    - *Chiffrement déterministe* : Idem que pour les données structurées. 
 
 **Important :** Un job DLP ne peut effectuer qu'un seul type de transformation à la fois. Ainsi, l'anonymisation de fichiers texte et de données structurées ne pourra se faire qu'après exécution de deux tâches DLP distincte
 
