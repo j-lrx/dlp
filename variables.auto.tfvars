@@ -10,7 +10,7 @@ enable_auto_population_of_timespan_config = false
 # deidentification template
 input_source_type = "TABLE"
 column_to_mask    = ["Nom","Prénom"]
-text_to_info_type = []
+text_to_info_type = ["EMAIL_ADDRESS","DATE","FIRST_NAME"]
 
 
 /*input_source_type = "TEXTE"
