@@ -12,8 +12,3 @@ input_source_type = "TEXTE"
 column_to_mask    = ["Nom","Prénom"]
 text_to_info_type = ["EMAIL_ADDRESS","DATE","FIRST_NAME"]
 
-
-/*input_source_type = "TEXTE"
-text_to_info_type = ["EMAIL_ADDRESS","DATE","FIRST_NAME"]
-column_to_mask    = []
-*/
