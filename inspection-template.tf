@@ -4,7 +4,15 @@ resource "google_data_loss_prevention_inspect_template" "default" {
   display_name = "${var.display_name} - inspection template"
 
   inspect_config {
-
+    info_types {
+            name = "EMAIL_ADDRESS"
+        }
+        info_types {
+            name = "DATE"
+        }
+        info_types {
+            name = "FIRST_NAME"
+        }
   }
 }
 
