@@ -19,7 +19,7 @@ resource "google_data_loss_prevention_deidentify_template" "table" {
             dynamic "fields" {
               for_each = var.column_to_mask != null ? [length(var.column_to_mask)] : [0]
               content {
-                name = each.value
+                name = fields.value
               }
             }
 
