@@ -81,7 +81,7 @@ resource "google_data_loss_prevention_deidentify_template" "texte" {
           content {
 
             dynamic "info_types" {
-              for_each = var.text_to_info_type != null ? [length(var.text_to_info_type)] : [0]
+              for_each = var.text_to_info_type
               content {
                 name = info_types.value
               }
